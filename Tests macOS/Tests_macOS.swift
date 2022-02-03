@@ -43,7 +43,7 @@ class Tests_macOS: XCTestCase {
         let xValue = 10*Double.pi
         var testValue = 0.0
         
-        let order = 6
+        let order = 3
         let start = order+25
         
         let exactValue = 7.607191130573301e-17
