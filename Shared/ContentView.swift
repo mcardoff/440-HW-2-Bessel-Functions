@@ -49,23 +49,28 @@ struct ContentView: View {
         // constants
         let xvals = [0.1, 1.0, 10.0]
         let orderMax = totalInput ?? 0 // order to compute up to
+        var test = false
         guess = ""
         
         // test values
         // not implemented yet
         let analyticVals =
-        [[9.518519719e-6, 9.616310231e-10, 2.901200102e-16],
-         [9.006581118e-3, 9.256115862e-5,  ],
-         []]
+        [[ 9.518519719e-6,  9.616310231e-10, 2.901200102e-16],
+         [ 9.006581118e-3,  9.256115862e-5 , 2.826498802e-8 ],
+         [-3.949584498e-1, -5.553451162e-1 , 1.255780236e0  ]]
         
         for order in (0...orderMax) {
             let start = order + 25 // highest order in downward
             guess += String(format: "j%d(x)\n", order)
-            
+            if(order == 3 || order == 5 || order == 8) { test = true }
             for x in xvals {
                 let downVal = downwardRecurseBessel(x: x, order: order, start: start)
                 let upVal   = upwardRecurseBessel(x: x, order: order)
                 let errVal  = abs(upVal - downVal) / abs(upVal) + abs(downVal)
+                
+                if(test) {
+                    
+                }
                 
                 // display x, down recursion, up recursion, and relative error
                 guess += String(
@@ -73,6 +78,7 @@ struct ContentView: View {
                     x, downVal, upVal, errVal
                 )
             }
+            test = false
         }
     }
 }
