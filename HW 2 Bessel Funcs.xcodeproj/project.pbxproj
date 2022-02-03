@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C36D3EB27AB4E0B0090028B /* Spherical Bessel Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D3EA27AB4E0B0090028B /* Spherical Bessel Functions.swift */; };
+		2C36D3EC27AB4E0B0090028B /* Spherical Bessel Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C36D3EA27AB4E0B0090028B /* Spherical Bessel Functions.swift */; };
 		2C4B92A527AB47E600CDF969 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B92A427AB47E600CDF969 /* Tests_iOS.swift */; };
 		2C4B92A727AB47E600CDF969 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B92A627AB47E600CDF969 /* Tests_iOSLaunchTests.swift */; };
 		2C4B92B127AB47E600CDF969 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4B92B027AB47E600CDF969 /* Tests_macOS.swift */; };
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C36D3EA27AB4E0B0090028B /* Spherical Bessel Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spherical Bessel Functions.swift"; sourceTree = "<group>"; };
 		2C4B928C27AB47E400CDF969 /* HW_2_Bessel_FuncsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW_2_Bessel_FuncsApp.swift; sourceTree = "<group>"; };
 		2C4B928D27AB47E400CDF969 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2C4B928E27AB47E600CDF969 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 			children = (
 				2C4B928C27AB47E400CDF969 /* HW_2_Bessel_FuncsApp.swift */,
 				2C4B928D27AB47E400CDF969 /* ContentView.swift */,
+				2C36D3EA27AB4E0B0090028B /* Spherical Bessel Functions.swift */,
 				2C4B928E27AB47E600CDF969 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -301,6 +305,7 @@
 			files = (
 				2C4B92B627AB47E600CDF969 /* ContentView.swift in Sources */,
 				2C4B92B427AB47E600CDF969 /* HW_2_Bessel_FuncsApp.swift in Sources */,
+				2C36D3EB27AB4E0B0090028B /* Spherical Bessel Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +315,7 @@
 			files = (
 				2C4B92B727AB47E600CDF969 /* ContentView.swift in Sources */,
 				2C4B92B527AB47E600CDF969 /* HW_2_Bessel_FuncsApp.swift in Sources */,
+				2C36D3EC27AB4E0B0090028B /* Spherical Bessel Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import HW_2_Bessel_Funcs
 
 class Tests_macOS: XCTestCase {
 
@@ -21,6 +22,16 @@ class Tests_macOS: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    
+    func testFirstSphBessel() throws {
+        let xTestVal = 3.14159
+        let exactVal = 0.000000844664578538733
+        var myVal = sphericalBesselZero(x: xTestVal)
+        
+        XCTAssertEqual(exactVal, myVal, accuracy: 1.0e-8, "Print it should have been closer.")
+    }
+    
 
     func testExample() throws {
         // UI tests must launch the application that they test.
@@ -39,4 +50,5 @@ class Tests_macOS: XCTestCase {
             }
         }
     }
+    
 }
