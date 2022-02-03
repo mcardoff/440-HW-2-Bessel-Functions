@@ -28,8 +28,38 @@ class Tests_macOS: XCTestCase {
         let xTestVal = 3.14159
         let exactVal = 0.000000844664578538733
         let myVal = sphericalBesselZero(x: xTestVal)
+        XCTAssertEqual(exactVal, myVal, accuracy: 1.0e-15, "Print it should have been closer.")
+    }
+    
+    func testSecondSphBessel() {
+        let xValue = Double.pi
+        var testValue = 0.0
+        let exactValue = 0.3183098861837906715377675267450287240689192914809128974953346881
+        testValue = sphericalBesselOne(x: xValue)
+        XCTAssertEqual(testValue, exactValue, accuracy: 1.0e-15, "Print it should have been closer.")
+    }
+    
+    func testDownBessel() {
+        let xValue = 10*Double.pi
+        var testValue = 0.0
         
-        XCTAssertEqual(exactVal, myVal, accuracy: 1.0e-8, "Print it should have been closer.")
+        let order = 6
+        let start = order+25
+        
+        let exactValue = 7.607191130573301e-17
+        testValue = downwardRecurseBessel(x: xValue, order: order, start: start)
+        XCTAssertEqual(testValue, exactValue, accuracy: 1.0e-15, "Print it should have been closer.")
+    }
+    
+    func testUpBessel() {
+        let xValue = 10*Double.pi
+        var testValue = 0.0
+        
+        let order = 12
+        
+        let exactValue = 0.01946766930505029
+        testValue = upwardRecurseBessel(x: xValue, order: order)
+        XCTAssertEqual(testValue, exactValue, accuracy: 1.0e-15, "Print it should have been closer.")
     }
     
 

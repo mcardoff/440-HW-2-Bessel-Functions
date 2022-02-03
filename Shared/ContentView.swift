@@ -15,7 +15,7 @@ struct ContentView: View {
     {
         let f = NumberFormatter()
         f.numberStyle = .decimal
-        return f	
+        return f
     }()
     
     var body: some View {
