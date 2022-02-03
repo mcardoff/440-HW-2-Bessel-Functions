@@ -27,7 +27,7 @@ class Tests_macOS: XCTestCase {
     func testFirstSphBessel() throws {
         let xTestVal = 3.14159
         let exactVal = 0.000000844664578538733
-        var myVal = sphericalBesselZero(x: xTestVal)
+        let myVal = sphericalBesselZero(x: xTestVal)
         
         XCTAssertEqual(exactVal, myVal, accuracy: 1.0e-8, "Print it should have been closer.")
     }

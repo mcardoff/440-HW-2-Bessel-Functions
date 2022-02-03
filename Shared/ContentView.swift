@@ -15,7 +15,7 @@ struct ContentView: View {
     {
         let f = NumberFormatter()
         f.numberStyle = .decimal
-        return f
+        return f	
     }()
     
     var body: some View {
@@ -49,34 +49,47 @@ struct ContentView: View {
         // constants
         let xvals = [0.1, 1.0, 10.0]
         let orderMax = totalInput ?? 0 // order to compute up to
+        
         var test = false
         guess = ""
         
         // test values
         // not implemented yet
-        let analyticVals =
-        [[ 9.518519719e-6,  9.616310231e-10, 2.901200102e-16],
-         [ 9.006581118e-3,  9.256115862e-5 , 2.826498802e-8 ],
-         [-3.949584498e-1, -5.553451162e-1 , 1.255780236e0  ]]
+        let analyticVals = // l = 3 5 8
+        ["3,0.1":9.518519719e-6, "5,0.1":9.616310231e-10, "8,0.1":2.901200102e-16,
+         "3,1.0":9.006581118e-3, "5,1.0":9.256115862e-5, "8,1.0":2.826498802e-8,
+         "3,10.0":-3.949584498e-1, "5,10.0":-5.553451162e-1, "8,10.0":1.255780236e0]
+        var upErr = 0.0, dnErr = 0.0
         
         for order in (0...orderMax) {
             let start = order + 25 // highest order in downward
             guess += String(format: "j%d(x)\n", order)
+            
             if(order == 3 || order == 5 || order == 8) { test = true }
-            for x in xvals {
+            
+            for x:Double in xvals {
+                test = test && (x == 0.1 || x == 1.0 || x == 10.0)
+                
                 let downVal = downwardRecurseBessel(x: x, order: order, start: start)
                 let upVal   = upwardRecurseBessel(x: x, order: order)
-                let errVal  = abs(upVal - downVal) / abs(upVal) + abs(downVal)
+                let errVal  = abs(upVal - downVal) / (abs(upVal) + abs(downVal))
                 
                 if(test) {
-                    
+                    let dictIndex = String(format: "%d,%0.1f", order, x)
+                    let analyticVal = analyticVals[dictIndex]!
+                    // find the absolute value of the log of the error
+                    upErr = log10(abs(upVal - analyticVal) / analyticVal)
+                    dnErr = log10(abs(downVal - analyticVal) / analyticVal)
                 }
                 
                 // display x, down recursion, up recursion, and relative error
                 guess += String(
-                    format: "x = %f, Dn: %7.5e, Up: %7.5e, Err: %7.5e\n",
+                    format: "x = %f, Dn: %7.5e, Up: %7.5e, Diff: %7.5e\n",
                     x, downVal, upVal, errVal
                 )
+                if(test) {
+                    guess += String(format: "->UpErr: %7.5f, DnErr: %7.5f\n", upErr, dnErr)
+                }
             }
             test = false
         }
